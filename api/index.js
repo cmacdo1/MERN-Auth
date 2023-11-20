@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+import userRoutes from './routes/user.route.js';
 
 /* CONFIGURATIONS */
 dotenv.config();
@@ -17,3 +18,6 @@ mongoose
         console.log('MongoDB Connection Successful')
     })
     .catch((error) => console.log(`${error} did not connect`));
+
+/* ROUTES */
+app.use('/api/user/', userRoutes);
